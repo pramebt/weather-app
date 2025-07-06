@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+.weather-icon {
+    @apply  object-cover;
+}
+
+.search-bar{
+    @apply px-5 py-3 rounded-3xl bg-[#ebfffc] cursor-pointer;
+}
