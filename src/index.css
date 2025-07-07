@@ -1,9 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
+*{
+    
+}
+
 .weather-icon {
-    @apply  object-cover;
+    @apply  w-[150px] m-[30px] object-cover;
 }
 
 .search-bar{
     @apply px-5 py-3 rounded-3xl bg-[#ebfffc] cursor-pointer;
+}
+
+.temperature {
+    @apply text-white text-[80px] font-bold;
+}
+
+.location {
+    @apply text-white text-[40px] font-bold;
+}
+
+.weather-data {
+    @apply  w-full mt-[40px] text-white flex justify-between ;
 }
