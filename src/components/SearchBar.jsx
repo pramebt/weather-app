@@ -6,7 +6,7 @@ const SearchBar = ({ inputRef, onSearch }) => (
     <input
       ref={inputRef}
       type="text"
-      placeholder="Search"
+      placeholder="Search city name"
       className="search-bar"
     />
     <img

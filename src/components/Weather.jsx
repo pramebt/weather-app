@@ -30,8 +30,9 @@ const Weather = () => {
   };
 
   const search = async (city) => {
-    if (!city) {
-      alert("Please enter a city name");
+    if (!city || city.trim() === "") {
+      alert("Please enter a city name.");
+      setWeatherData(false); // Clear data
       return;
     }
 
