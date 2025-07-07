@@ -62,7 +62,7 @@ const Weather = () => {
   };
 
   useEffect(() => {
-    search("Bangkok"); // default city
+    search(); // default city
   }, []);
 
   return (
