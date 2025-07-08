@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import clear_icon from "/assets/clear.png";
 import cloud_icon from "/assets/cloud.png";
 import drizzle_icon from "/assets/drizzle.png";
@@ -66,21 +67,67 @@ const Weather = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-[350px] min-w-[250px] bg-white/20 rounded-2xl shadow-lg flex flex-col items-center p-10">
+    <div className="w-full max-w-[350px] min-w-[250px] bg-white/20 rounded-2xl shadow-lg flex flex-col items-center justify-center p-10 mx-auto">
       <SearchBar inputRef={inputRef} onSearch={search} />
-      {weatherData && (
-        <>
-          <WeatherInfo
-            icon={weatherData.icon}
-            temperature={weatherData.temperature}
-            location={weatherData.location}
-          />
-          <WeatherDetails
-            humidity={weatherData.humidity}
-            windSpeed={weatherData.windSpeed}
-          />
-        </>
-      )}
+      <AnimatePresence mode="wait">
+        {weatherData && (
+          <motion.div
+            key="weather-content"
+            initial={{ 
+              opacity: 0, 
+              height: 0,
+              scale: 1
+            }}
+            animate={{ 
+              opacity: 1, 
+              height: "auto",
+              scale: 1
+            }}
+            exit={{ 
+              opacity: 0, 
+              height: 0,
+              scale: 1
+            }}
+            transition={{ 
+              duration: 0.8,
+              ease: [0.25, 0.46, 0.65, 0.94]
+            }}
+            className="w-full overflow-hidden flex flex-col items-center"
+          >
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ 
+                duration: 0.6,
+                delay: 0.2,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              className="flex flex-col items-center"
+            >
+              <WeatherInfo
+                icon={weatherData.icon}
+                temperature={weatherData.temperature}
+                location={weatherData.location}
+              />
+            </motion.div>
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ 
+                duration: 0.6,
+                delay: 0.4,
+                ease: [0.25, 0.46, 0.46, 0.95]
+              }}
+              className="w-full"
+            >
+              <WeatherDetails
+                humidity={weatherData.humidity}
+                windSpeed={weatherData.windSpeed}
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
