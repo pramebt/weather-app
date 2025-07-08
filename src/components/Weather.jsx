@@ -67,7 +67,7 @@ const Weather = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-[350px] min-w-[250px] bg-white/20 rounded-2xl shadow-lg flex flex-col items-center justify-center p-10 mx-auto">
+    <div className="w-full max-w-[400px] min-w-[250px] bg-white/20 rounded-2xl shadow-lg flex flex-col items-center justify-center p-10 mx-auto">
       <SearchBar inputRef={inputRef} onSearch={search} />
       <AnimatePresence mode="wait">
         {weatherData && (

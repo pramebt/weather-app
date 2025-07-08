@@ -21,9 +21,7 @@
     @apply text-white text-[40px] font-bold;
 }
 
-.weather-data {
-    @apply  w-full mt-[40px] text-white flex justify-between ;
-}
+
 
 /* Custom animations */
 @keyframes fadeIn {
